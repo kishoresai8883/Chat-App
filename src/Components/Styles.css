@@ -12,11 +12,6 @@
     flex-direction: column;
 }
 
-.chatArea-container {
-    background-color: aquamarine;
-    flex: 0.7;
-}
-
 .sb-header {
     display: flex;
     justify-content: space-between;
@@ -67,7 +62,7 @@
     align-items: center;
     background-color: #d9d9d9;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 2rem;
+    font-size: 28px;
     font-weight: bolder;
     color: white;
     height: 32px;
@@ -100,17 +95,78 @@
 .chatArea-container {
     display: flex;
     flex-direction: column;
+    flex: 0.7;
 }
 
 .chatArea-header {
-    background-color: orange;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    padding: 10px 10px;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
 }
 
 .messages-container {
-    background-color: aquamarine;
+    background-color: white;
+    padding: 10px 10px;
+    margin: 10px;
+    border-radius: 20px;
     flex: 1;
 }
 
 .text-input {
-    background-color: yellow;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.self-msg-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.others-msg-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.other-text-content {
+    background-color: #d9d9d9;
+    padding: 10px 10px;
+    margin: 5px;
+    border-radius: 20px;
+    width: max-content;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-box {
+    background-color: aqua;
+    padding: 10px 10px;
+    margin: 5px;
+    border-radius: 20px;
+    width: max-content;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.self-timeStamp {
+    align-self: flex-end;
+    font-size: 0.75rem;
+    font-weight: lighter;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
