@@ -125,6 +125,10 @@
     scrollbar-width: none;
 }
 
+.messages-container::-webkit-scrollbar {
+    display: none;
+}
+
 .text-input {
     background-color: white;
     display: flex;
@@ -172,3 +176,24 @@
     font-weight: lighter;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex: 0.7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(0, 0, 0, 0.54);
+    border-bottom: 5px solid #63d7b0;
+    border-radius: 20px;
+}
+
+.welcome-logo {
+    height: 20vw;
+}
+
+
+
+

@@ -10,10 +10,10 @@ const ChatArea = ({props}) => {
   return (
     <div className='chatArea-container'>
       <div className='chatArea-header'>
-        <p className='con-icon'>S</p>
+        <p className='con-icon'>{props.name[0]}</p>
         <div className='header-text'>
-          <p className='con-name'>Sai</p>
-          <p className='con-timeStamp'>Yesterday</p>
+          <p className='con-name'>{props.name}</p>
+          <p className='con-timeStamp'>{props.timeStamp}</p>
         </div>
         <IconButton>
           <DeleteIcon/>
