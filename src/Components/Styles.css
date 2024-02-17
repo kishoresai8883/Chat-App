@@ -121,6 +121,8 @@
     margin: 10px;
     border-radius: 20px;
     flex: 1;
+    overflow: scroll;
+    scrollbar-width: none;
 }
 
 .text-input {
