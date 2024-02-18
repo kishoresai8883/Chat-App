@@ -4,11 +4,21 @@ import './Styles.css'
 import logo from "../Images/live-chat_512px.png"
 import SearchIcon from '@mui/icons-material/Search'
 import { IconButton } from '@mui/material'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const Users = () => {
   const lightTheme = useSelector((state) => state.themeKey);
   return (
-    <div className='list-container'>
+    <AnimatePresence>
+      <motion.div
+      initial={{opacity: 0, scale: 0 }}
+      animate={{opacity: 1, scale: 1}}
+      exit={{opacity: 0, scale: 0}}
+      transition={{
+        ease: "anticipate",
+        duration: "0.3",
+      }}
+      className='list-container'>
       <div className={'ug-header' + (lightTheme ? "" : " dark")}>
         <img src={logo} alt='online' style={{height: "32px", width: "32px"}}/>
         <p className={'ug-title' + (lightTheme ? "" : " dark")}>Online Users</p>
@@ -20,48 +30,70 @@ const Users = () => {
         <input placeholder='search' className={'search-input' + (lightTheme ? "" : " dark")}/>
       </div>
       <div className='ug-list'>
-        <div className={'list-item' + (lightTheme ? "" : " dark")}>
+        <motion.div whileHover={{scale : 1.01}} 
+          whileTap={{scale: 0.98}}
+          className={'list-item' + (lightTheme ? "" : " dark")}>
             <p className={'con-icon' + (lightTheme ? "" : " dark")}>M</p>
             <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Mahesh</p>
-        </div>
-        <div className={'list-item' + (lightTheme ? "" : " dark")}>
+        </motion.div>
+        <motion.div whileHover={{scale : 1.01}}
+          whileTap={{scale: 0.98}}
+          className={'list-item' + (lightTheme ? "" : " dark")}>
             <p className={'con-icon' + (lightTheme ? "" : " dark")}>A</p>
             <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Ajay</p>
-        </div>
-        <div className={'list-item' + (lightTheme ? "" : " dark")}>
+        </motion.div>
+        <motion.div whileHover={{scale : 1.01}} 
+          whileTap={{scale: 0.98}}
+          className={'list-item' + (lightTheme ? "" : " dark")}>
             <p className={'con-icon' + (lightTheme ? "" : " dark")}>M</p>
             <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Mahesh</p>
-        </div>
-        <div className={'list-item' + (lightTheme ? "" : " dark")}>
+        </motion.div>
+        <motion.div whileHover={{scale : 1.01}} 
+          whileTap={{scale: 0.98}}
+          className={'list-item' + (lightTheme ? "" : " dark")}>
             <p className={'con-icon' + (lightTheme ? "" : " dark")}>A</p>
             <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Ajay</p>
-        </div>
-        <div className={'list-item' + (lightTheme ? "" : " dark")}>
+        </motion.div>
+        <motion.div whileHover={{scale : 1.01}} 
+          whileTap={{scale: 0.98}}
+          className={'list-item' + (lightTheme ? "" : " dark")}>
             <p className={'con-icon' + (lightTheme ? "" : " dark")}>M</p>
             <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Mahesh</p>
-        </div>
-        <div className={'list-item' + (lightTheme ? "" : " dark")}>
+        </motion.div>
+        <motion.div whileHover={{scale : 1.01}} 
+          whileTap={{scale: 0.98}}
+          className={'list-item' + (lightTheme ? "" : " dark")}>
             <p className={'con-icon' + (lightTheme ? "" : " dark")}>A</p>
             <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Ajay</p>
-        </div>
-        <div className={'list-item' + (lightTheme ? "" : " dark")}>
+        </motion.div>
+        <motion.div whileHover={{scale : 1.01}} 
+          whileTap={{scale: 0.98}}
+          className={'list-item' + (lightTheme ? "" : " dark")}>
             <p className={'con-icon' + (lightTheme ? "" : " dark")}>R</p>
             <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Ravi</p>
-        </div>
-        <div className={'list-item' + (lightTheme ? "" : " dark")}>
+        </motion.div>
+        <motion.div whileHover={{scale : 1.01}} 
+          whileTap={{scale: 0.98}}
+          className={'list-item' + (lightTheme ? "" : " dark")}>
             <p className={'con-icon' + (lightTheme ? "" : " dark")}>K</p>
             <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Kishore</p>
-        </div>
-        <div className={'list-item' + (lightTheme ? "" : " dark")}>
+        </motion.div>
+        <motion.div whileHover={{scale : 1.01}} 
+          whileTap={{scale: 0.98}}
+          className={'list-item' + (lightTheme ? "" : " dark")}>
             <p className={'con-icon' + (lightTheme ? "" : " dark")}>S</p>
             <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Sai</p>
-        </div>
-        <div className={'list-item' + (lightTheme ? "" : " dark")}>
+        </motion.div>
+        <motion.div whileHover={{scale : 1.01}} 
+          whileTap={{scale: 0.98}}
+          className={'list-item' + (lightTheme ? "" : " dark")}>
             <p className={'con-icon' + (lightTheme ? "" : " dark")}>C</p>
             <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Chinnu</p>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
+    </AnimatePresence>
+    
   )
 }
 

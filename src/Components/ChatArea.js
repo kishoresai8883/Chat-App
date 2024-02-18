@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { useSelector } from 'react-redux'
 import './Styles.css'
 import DeleteIcon from '@mui/icons-material/Delete'
 import SendIcon from '@mui/icons-material/Send'
@@ -7,6 +8,7 @@ import MessageSelf from './MessageSelf'
 import MessageOthers from './MessageOthers'
 
 const ChatArea = () => {
+  const lightTheme = useSelector((state) => state.themeKey);
   const [conversations, setConversations] = useState([
     {
       name: "Test1",
@@ -28,17 +30,17 @@ const ChatArea = () => {
   const props = conversations[0]
   return (
     <div className='chatArea-container'>
-      <div className='chatArea-header'>
-        <p className='con-icon'>{props.name[0]}</p>
+      <div className={'chatArea-header' + (lightTheme ? "" : " dark")}>
+        <p className={'con-icon' + (lightTheme ? "" : " dark")}>{props.name[0]}</p>
         <div className='header-text'>
-          <p className='con-name'>{props.name}</p>
-          <p className='con-timeStamp'>{props.timeStamp}</p>
+          <p className={'con-name' + (lightTheme ? "" : " dark")}>{props.name}</p>
+          <p className={'con-timeStamp' + (lightTheme ? "" : " dark")}>{props.timeStamp}</p>
         </div>
-        <IconButton>
+        <IconButton className={'icon' + (lightTheme ? "" : " dark")}>
           <DeleteIcon/>
         </IconButton>
       </div>
-      <div className='messages-container'>
+      <div className={'messages-container' + (lightTheme ? "" : " dark")}>
         <MessageOthers/>
         <MessageSelf/>
         <MessageOthers/>
@@ -46,9 +48,9 @@ const ChatArea = () => {
         <MessageOthers/>
         <MessageSelf/>
       </div>
-      <div className='text-input'>
-        <input placeholder='Type a Message' className='search-input'/>
-        <IconButton>
+      <div className={'text-input' + (lightTheme ? "" : " dark")}>
+        <input placeholder='Type a Message' className={'search-input' + (lightTheme ? "" : " dark")}/>
+        <IconButton className={'icon' + (lightTheme ? "" : " dark")}>
           <SendIcon/>
         </IconButton>
       </div>
