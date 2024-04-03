@@ -5,6 +5,7 @@ import GroupAddIcon from '@mui/icons-material/GroupAdd'
 import AddCircleIcon from '@mui/icons-material/AddCircle'
 import NightlightIcon from '@mui/icons-material/Nightlight';
 import LightModeIcon from '@mui/icons-material/LightMode';
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { IconButton } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 import ConversationsItem from './ConversationsItem'
@@ -63,6 +64,14 @@ const Sidebar = () => {
             {lightTheme && (<NightlightIcon className={"icon" + ((lightTheme) ? "" : " dark")}/>)}
             {!lightTheme && (<LightModeIcon className={"icon" + ((lightTheme) ? "" : " dark")}/>)}
         </IconButton>
+        <IconButton
+            onClick={() => {
+              localStorage.removeItem("userData");
+              navigate("/");
+            }}
+          >
+            <ExitToAppIcon className={"icon" + (lightTheme ? "" : " dark")} />
+          </IconButton>
         </div>
       </div>
       <div className={"sb-search" + ((lightTheme) ? "" : " dark")}>
