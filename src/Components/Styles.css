@@ -135,6 +135,17 @@
 
 }
 
+.createGroups-container {
+    flex: 0.7;
+    align-self: center;
+    padding: 20px 10px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .header-text {
     display: flex;
     flex-direction: column;

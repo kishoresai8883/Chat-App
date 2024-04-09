@@ -93,7 +93,16 @@ const Sidebar = () => {
       <div className={"sb-conversations" + ((lightTheme) ? "" : " dark")}>
         {conversations.map((conversation, index) => {
           if(conversation.users.length === 1) {
-            return <div key={index}></div>
+            var chatName = "";
+            if (conversation.isGroupChat) {
+              chatName = conversation.chatName;
+            } else {
+              conversation.users.map((user) => {
+                if (user._id != userData.data._id) {
+                  chatName = user.name;
+                }
+              })
+            }
           }
           if(conversation.latestMessage === undefined) {
             return (
