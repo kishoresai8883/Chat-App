@@ -1,13 +1,42 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useContext, useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { myContext } from './MainContainer'
 import './Styles.css'
 import logo from "../Images/live-chat_512px.png"
 import SearchIcon from '@mui/icons-material/Search'
+import RefreshIcon from "@mui/icons-material/Refresh";
 import { IconButton } from '@mui/material'
 import { AnimatePresence, motion } from 'framer-motion'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { refreshSidebarFun } from "../Features/refreshSidebar";
 
 const Users = () => {
+  const { refresh, setRefresh } = useContext(myContext);
   const lightTheme = useSelector((state) => state.themeKey);
+  const [ users, setUsers ] = useState([]);
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const nav = useNavigate();
+  const dispatch = useDispatch();
+
+  if(!userData) {
+    console.log("User Not Authenticated");
+    nav(-1);
+  }
+
+  useEffect(() => {
+    console.log("User's Refreshed");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userData.data.token}`
+      }
+    };
+    axios.get('http://localhost:8000/user/fetchUsers', config).then((data) => {
+      console.log("User data refreshed in users panel");
+      setUsers(data.data);
+    });
+  }, [refresh]);
+
   return (
     <AnimatePresence>
       <motion.div
@@ -20,8 +49,16 @@ const Users = () => {
       }}
       className='list-container'>
       <div className={'ug-header' + (lightTheme ? "" : " dark")}>
-        <img src={logo} alt='online' style={{height: "32px", width: "32px"}}/>
-        <p className={'ug-title' + (lightTheme ? "" : " dark")}>Online Users</p>
+        <img src={logo} alt='Online' style={{height: "32px", width: "32px", marginLeft: "10px"}}/>
+        <p className={'ug-title' + (lightTheme ? "" : " dark")}>Available Users</p>
+        <IconButton
+            className={"icon" + (lightTheme ? "" : " dark")}
+            onClick={() => {
+              setRefresh(!refresh);
+            }}
+          >
+            <RefreshIcon />
+          </IconButton>
       </div>
       <div className={'sb-search' + (lightTheme ? "" : " dark")}>
         <IconButton className={'icon' + (lightTheme ? "" : " dark")}>
@@ -30,66 +67,33 @@ const Users = () => {
         <input placeholder='search' className={'search-input' + (lightTheme ? "" : " dark")}/>
       </div>
       <div className='ug-list'>
-        <motion.div whileHover={{scale : 1.01}} 
-          whileTap={{scale: 0.98}}
-          className={'list-item' + (lightTheme ? "" : " dark")}>
-            <p className={'con-icon' + (lightTheme ? "" : " dark")}>M</p>
-            <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Mahesh</p>
-        </motion.div>
-        <motion.div whileHover={{scale : 1.01}}
-          whileTap={{scale: 0.98}}
-          className={'list-item' + (lightTheme ? "" : " dark")}>
-            <p className={'con-icon' + (lightTheme ? "" : " dark")}>A</p>
-            <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Ajay</p>
-        </motion.div>
-        <motion.div whileHover={{scale : 1.01}} 
-          whileTap={{scale: 0.98}}
-          className={'list-item' + (lightTheme ? "" : " dark")}>
-            <p className={'con-icon' + (lightTheme ? "" : " dark")}>M</p>
-            <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Mahesh</p>
-        </motion.div>
-        <motion.div whileHover={{scale : 1.01}} 
-          whileTap={{scale: 0.98}}
-          className={'list-item' + (lightTheme ? "" : " dark")}>
-            <p className={'con-icon' + (lightTheme ? "" : " dark")}>A</p>
-            <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Ajay</p>
-        </motion.div>
-        <motion.div whileHover={{scale : 1.01}} 
-          whileTap={{scale: 0.98}}
-          className={'list-item' + (lightTheme ? "" : " dark")}>
-            <p className={'con-icon' + (lightTheme ? "" : " dark")}>M</p>
-            <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Mahesh</p>
-        </motion.div>
-        <motion.div whileHover={{scale : 1.01}} 
-          whileTap={{scale: 0.98}}
-          className={'list-item' + (lightTheme ? "" : " dark")}>
-            <p className={'con-icon' + (lightTheme ? "" : " dark")}>A</p>
-            <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Ajay</p>
-        </motion.div>
-        <motion.div whileHover={{scale : 1.01}} 
-          whileTap={{scale: 0.98}}
-          className={'list-item' + (lightTheme ? "" : " dark")}>
-            <p className={'con-icon' + (lightTheme ? "" : " dark")}>R</p>
-            <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Ravi</p>
-        </motion.div>
-        <motion.div whileHover={{scale : 1.01}} 
-          whileTap={{scale: 0.98}}
-          className={'list-item' + (lightTheme ? "" : " dark")}>
-            <p className={'con-icon' + (lightTheme ? "" : " dark")}>K</p>
-            <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Kishore</p>
-        </motion.div>
-        <motion.div whileHover={{scale : 1.01}} 
-          whileTap={{scale: 0.98}}
-          className={'list-item' + (lightTheme ? "" : " dark")}>
-            <p className={'con-icon' + (lightTheme ? "" : " dark")}>S</p>
-            <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Sai</p>
-        </motion.div>
-        <motion.div whileHover={{scale : 1.01}} 
-          whileTap={{scale: 0.98}}
-          className={'list-item' + (lightTheme ? "" : " dark")}>
-            <p className={'con-icon' + (lightTheme ? "" : " dark")}>C</p>
-            <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Chinnu</p>
-        </motion.div>
+        {users.map((user, index) => {
+          return(
+            <motion.div whileHover={{scale : 1.01}} 
+              whileTap={{scale: 0.98}}
+              className={'list-item' + (lightTheme ? "" : " dark")}
+              key={index}
+              onClick={() => {
+                console.log("Creating Chat with ", user.name);
+                const config = {
+                  headers: {
+                    Authorization: `Bearer ${userData.data.token}`,
+                  }
+                };
+                axios.post(
+                  "http://localhost:8000/chat/",
+                  {
+                    userId: user._id,
+                  },
+                  config
+                )
+                dispatch(refreshSidebarFun());
+              }}>
+                <p className={'con-icon' + (lightTheme ? "" : " dark")}>{user.name[0]}</p>
+                <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>{user.name}</p>
+            </motion.div>
+          )
+        })}
       </div>
     </motion.div>
     </AnimatePresence>

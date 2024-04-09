@@ -49,30 +49,6 @@ const Groups = () => {
             <p className={'con-icon' + (lightTheme ? "" : " dark")}>R</p>
             <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Ravi</p>
         </motion.div>
-        <motion.div whileHover={{scale : 1.01}} 
-          whileTap={{scale: 0.98}}
-          className={'list-item' + (lightTheme ? "" : " dark")}>
-            <p className={'con-icon' + (lightTheme ? "" : " dark")}>R</p>
-            <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Ravi</p>
-        </motion.div>
-        <motion.div whileHover={{scale : 1.01}} 
-          whileTap={{scale: 0.98}}
-        className={'list-item' + (lightTheme ? "" : " dark")}>
-            <p className={'con-icon' + (lightTheme ? "" : " dark")}>R</p>
-            <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Ravi</p>
-        </motion.div>
-        <motion.div whileHover={{scale : 1.01}} 
-          whileTap={{scale: 0.98}}
-          className={'list-item' + (lightTheme ? "" : " dark")}>
-            <p className={'con-icon' + (lightTheme ? "" : " dark")}>R</p>
-            <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Ravi</p>
-        </motion.div>
-        <motion.div whileHover={{scale : 1.01}} 
-          whileTap={{scale: 0.98}}
-          className={'list-item' + (lightTheme ? "" : " dark")}>
-            <p className={'con-icon' + (lightTheme ? "" : " dark")}>R</p>
-            <p className={'con-name item-name' + (lightTheme ? "" : " dark")}>Ravi</p>
-        </motion.div>
       </div>
     </motion.div>
     </AnimatePresence>

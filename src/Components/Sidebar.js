@@ -41,7 +41,9 @@ const Sidebar = () => {
     <div className='sidebar-container'>
       <div className={"sb-header" + ((lightTheme) ? "" : " dark")}>
         <div className='other-icons'>
-        <IconButton>
+        <IconButton onClick={() => {
+          navigate("/app/welcome")
+        }}>
             <AccountCircleIcon className={"icon" + ((lightTheme) ? "" : " dark")}/>
         </IconButton>
         <IconButton onClick={() => {
